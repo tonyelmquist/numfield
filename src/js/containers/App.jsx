@@ -1,11 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {
-  Button,
   Icon,
   Flag,
-  Container,
-  Grid,
   Dropdown
 } from "semantic-ui-react";
 import Notifications, {notify} from 'react-notify-toast';
@@ -88,7 +85,7 @@ class App extends React.Component {
       } else {
         const integerValue = this.state.value.split('.')[0].replace(/ /g, '');
         const newMask =
-          '9'.repeat(integerValue.length) + '.' + this.state.mask.split('.')[1];
+          '9'.repeat(integerValue.length) + '.' + this.state.mask.split('.')[1]; // change the integer half of the mask to be as long as the entered number before the '.'
         this.setState({ mask: newMask, value: integerValue });
       }
     }
@@ -96,8 +93,8 @@ class App extends React.Component {
 
   addZeroes = () => {
     const currentValue = this.state.value;
-    if (/\d/.test(currentValue) === false) return;
-    const newValue = currentValue.replace(/ /g, '0');
+    if (/\d/.test(currentValue) === false) return; // checks to see if there are any numbers in the field yet - if not, do nothing
+    const newValue = currentValue.replace(/ /g, '0'); // masked value has spaces as placeholders, so just replace with zeroes
     this.setState({ value: newValue });
   };
 
