@@ -1,0 +1,76 @@
+.currency-input {
+    display: inline-block;
+    width: 100%;
+    -webkit-appearance: none;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+    height: 62px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 24px;
+    border-style: none;
+    margin: 0px;
+    border-radius: 7px;
+    padding: 10px 18px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.currency-field {
+    width: 100%;
+    position: relative;
+    background-color: rgb(244, 244, 244);
+    border-radius: 7px;
+    height: 62px;
+}
+
+.currency-container {
+    width: 33%;
+    margin: 200px 33%;
+}
+
+.selection-options{
+    margin-bottom: 100px;
+}
+.currency-button {
+    width: 19% !important;
+    margin: 0;
+    background-color: transparent;
+    cursor: pointer
+}
+
+.currency-label{
+    color: rgb(152, 152, 152);
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: 1px;
+    transform: translate(0px, -50%);
+    font-size: 13px;
+    white-space: nowrap;
+    pointer-events: none;
+    padding: 0px 20px;
+}
+
+.top-mask{
+    z-index: 2;
+    color: rgb(87, 0, 255);
+}
+
+.bottom-mask{
+    z-index: 1;
+    color: rgb(155, 155, 155);
+}
+
+.currency-selector{
+    width:40%;
+    background-color: rgb(244, 244, 244);
+    line-height: 62px;
+    cursor: pointer;
+    font-size: 20px;
+    color: rgb(87, 0, 255);
+    border-radius: 7px;
+    padding: 0 16px 0 40px;
+    height: 62px;
+}
