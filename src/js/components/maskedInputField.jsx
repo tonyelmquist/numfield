@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import InputMask from "react-input-mask";
+import InputMask from 'react-input-mask';
 
 class MaskedInputField extends React.Component {
   constructor(props) {

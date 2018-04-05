@@ -18,10 +18,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currencyFrom: "BIF",
-      currencyTo: "BGN",
-      value: "",
-      mask: "99.9999", // initial format - replaced by currency pair
+      currencyFrom: 'BIF',
+      currencyTo: 'BGN',
+      value: '',
+      mask: '99.9999', // initial format - replaced by currency pair
       numericValue: 0
     };
   }
@@ -63,12 +63,12 @@ class App extends React.Component {
       this.setState({
         mask: this.getMask(this.state.currencyFrom, this.state.currencyTo),
         numericValue: 0,
-        value: ""
+        value: ''
       });
       return;
     }
-    if (value.indexOf("0") === 0) {
-      const newMask = "9." + this.state.mask.split(".")[1]; // if 0 is entered, changes input mask to have just one integer field
+    if (value.indexOf('0') === 0) {
+      const newMask = '9.' + this.state.mask.split('.')[1]; // if 0 is entered, changes input mask to have just one integer field
       this.setState({ mask: newMask });
     }
     this.setState({ value: value, numericValue: parseFloat(value) });
@@ -83,12 +83,12 @@ class App extends React.Component {
       // if '.' is pressed, check to see if the integer value is shorter than the mask and change appropriately
       if (/\d/.test(this.state.value) === false) {
         // if there is nothing in the field and '.' is pressed, enter a zero
-        const newMask = "9." + this.state.mask.split(".")[1];
-        this.setState({ value: "0.", numericValue: 0 });
+        const newMask = '9.' + this.state.mask.split('.')[1];
+        this.setState({ value: '0.', numericValue: 0 });
       } else {
-        const integerValue = this.state.value.split(".")[0].replace(/ /g, "");
+        const integerValue = this.state.value.split('.')[0].replace(/ /g, '');
         const newMask =
-          "9".repeat(integerValue.length) + "." + this.state.mask.split(".")[1];
+          '9'.repeat(integerValue.length) + '.' + this.state.mask.split('.')[1];
         this.setState({ mask: newMask, value: integerValue });
       }
     }
@@ -97,21 +97,20 @@ class App extends React.Component {
   addZeroes = () => {
     const currentValue = this.state.value;
     if (/\d/.test(currentValue) === false) return;
-    const newValue = currentValue.replace(/ /g, "0");
+    const newValue = currentValue.replace(/ /g, '0');
     this.setState({ value: newValue });
   };
 
   handlePaste = e => {
-    const pastedValue = e.clipboardData.getData("Text");
-    if (/\d/.test(pastedValue.replace(".", "")) === false) { // if not a number alert inappropriate input
+    const pastedValue = e.clipboardData.getData('Text');
+    if (/\d/.test(pastedValue.replace('.', '')) === false) { // if not a number alert inappropriate input
       notify.show('Pasted value is not appropriate for this field!', 'warning', 1500);
       e.preventDefault();
-      console.log("text");
       return;
     }
-    if (pastedValue.indexOf(".") !== -1) {
+    if (pastedValue.indexOf('.') !== -1) {
       if (
-        pastedValue.split(".")[0].length > this.state.mask.split(".")[0].length // if integer side of input larger than allowed alert inappropriate input
+        pastedValue.split('.')[0].length > this.state.mask.split('.')[0].length // if integer side of input larger than allowed alert inappropriate input
       ) {
         notify.show('Pasted value is not appropriate for this field!', 'warning', 1500);
         e.preventDefault();
@@ -131,7 +130,7 @@ class App extends React.Component {
   dropdownOptions = () => {
     return [
       {
-        value: "BGN",
+        value: 'BGN',
         text: (
           <span>
             <Flag name="bulgaria" /> BGN
@@ -139,7 +138,7 @@ class App extends React.Component {
         )
       },
       {
-        value: "BHD",
+        value: 'BHD',
         text: (
           <span>
             <Flag name="bahrain" /> BHD
@@ -147,7 +146,7 @@ class App extends React.Component {
         )
       },
       {
-        value: "BIF",
+        value: 'BIF',
         text: (
           <span>
             <Flag name="burundi" /> BIF
@@ -199,4 +198,4 @@ class App extends React.Component {
 
 export default App;
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById('app'));
