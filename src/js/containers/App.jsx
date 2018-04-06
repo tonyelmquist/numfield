@@ -7,7 +7,6 @@ import {
 } from "semantic-ui-react";
 import Notifications, {notify} from 'react-notify-toast';
 
-
 import MaskedInputField from "../components/maskedInputField";
 import currencyFormats from "../constants/currencyFormats";
 
